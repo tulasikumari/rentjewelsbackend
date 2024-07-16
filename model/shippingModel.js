@@ -1,0 +1,37 @@
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const shippingInfoSchema = new Schema({
+  userID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users",
+    required: true,
+  },
+  username: {
+    type: String,
+    required: true,
+  },
+  address: {
+    type: String,
+    required: true,
+  },
+  contactNumber: {
+    type: String,
+    required: true,
+  },
+  pickUpDate: {
+    type: Date,
+    required: true,
+  },
+  returnDate: {
+    type: Date,
+    required: true,
+  },
+  specificRequirements: {
+    required: true,
+    type: String,
+  }
+});
+
+const ShippingInfo = mongoose.model("ShippingInfo", shippingInfoSchema); // Corrected the schema reference here
+
+module.exports = ShippingInfo;
